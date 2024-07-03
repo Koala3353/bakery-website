@@ -9,11 +9,11 @@
   --bs-secondary-text-emphasis: #422A14;
   --bs-secondary-bg-subtle: #EDE1D6;
   --bs-secondary-border-subtle: #DBC3AD;
-  --bs-info: #8DBFBF;
-  --bs-info-rgb: 141,191,191;
-  --bs-info-text-emphasis: #384C4C;
-  --bs-info-bg-subtle: #E8F2F2;
-  --bs-info-border-subtle: #D1E5E5;
+  --bs-info: #DDA292;
+  --bs-info-rgb: 221,162,146;
+  --bs-info-text-emphasis: #58413A;
+  --bs-info-bg-subtle: #F8ECE9;
+  --bs-info-border-subtle: #F1DAD3;
   --bs-light: #f5f6f8;
   --bs-light-rgb: 245,246,248;
   --bs-light-text-emphasis: #626263;
@@ -86,33 +86,33 @@
 
 .btn-info {
   --bs-btn-color: #000000;
-  --bs-btn-bg: #8DBFBF;
-  --bs-btn-border-color: #8DBFBF;
+  --bs-btn-bg: #DDA292;
+  --bs-btn-border-color: #DDA292;
   --bs-btn-hover-color: #000000;
-  --bs-btn-hover-bg: #9EC9C9;
-  --bs-btn-hover-border-color: #98C5C5;
-  --bs-btn-focus-shadow-rgb: 21,29,29;
+  --bs-btn-hover-bg: #E2B0A2;
+  --bs-btn-hover-border-color: #E0AB9D;
+  --bs-btn-focus-shadow-rgb: 33,24,22;
   --bs-btn-active-color: #000000;
-  --bs-btn-active-bg: #A4CCCC;
-  --bs-btn-active-border-color: #98C5C5;
+  --bs-btn-active-bg: #E4B5A8;
+  --bs-btn-active-border-color: #E0AB9D;
   --bs-btn-disabled-color: #000000;
-  --bs-btn-disabled-bg: #8DBFBF;
-  --bs-btn-disabled-border-color: #8DBFBF;
+  --bs-btn-disabled-bg: #DDA292;
+  --bs-btn-disabled-border-color: #DDA292;
 }
 
 .btn-outline-info {
-  --bs-btn-color: #8DBFBF;
-  --bs-btn-border-color: #8DBFBF;
-  --bs-btn-focus-shadow-rgb: 141,191,191;
+  --bs-btn-color: #DDA292;
+  --bs-btn-border-color: #DDA292;
+  --bs-btn-focus-shadow-rgb: 221,162,146;
   --bs-btn-hover-color: #000000;
-  --bs-btn-hover-bg: #8DBFBF;
-  --bs-btn-hover-border-color: #8DBFBF;
+  --bs-btn-hover-bg: #DDA292;
+  --bs-btn-hover-border-color: #DDA292;
   --bs-btn-active-color: #000000;
-  --bs-btn-active-bg: #8DBFBF;
-  --bs-btn-active-border-color: #8DBFBF;
-  --bs-btn-disabled-color: #8DBFBF;
+  --bs-btn-active-bg: #DDA292;
+  --bs-btn-active-border-color: #DDA292;
+  --bs-btn-disabled-color: #DDA292;
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #8DBFBF;
+  --bs-btn-disabled-border-color: #DDA292;
 }
 
 .btn-light {
