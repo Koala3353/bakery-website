@@ -24,14 +24,6 @@
   --bs-icon-size: 1.5rem;
 }
 
-.bs-icon-lg {
-  --bs-icon-size: 2rem;
-}
-
-.bs-icon-xl {
-  --bs-icon-size: 2.5rem;
-}
-
 .bs-icon.bs-icon-primary {
   color: var(--bs-white);
   background: var(--bs-primary);
