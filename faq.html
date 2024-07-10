@@ -6,87 +6,6 @@
 <link rel="icon" type="image/x-icon" href="./assets/brands/Transparent Logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>FAQ - The Little Baker Kitchen</title>
-    <script>
-        (function() {
-
-            // JavaScript snippet handling Dark/Light mode switching
-
-            const getStoredTheme = () => localStorage.getItem('theme');
-            const setStoredTheme = theme => localStorage.setItem('theme', theme);
-            const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
-
-            const getPreferredTheme = () => {
-
-                if (forcedTheme) return forcedTheme;
-
-                const storedTheme = getStoredTheme();
-                if (storedTheme) {
-                    return storedTheme;
-                }
-
-                const pageTheme = document.documentElement.getAttribute('data-bs-theme');
-
-                if (pageTheme) {
-                    return pageTheme;
-                }
-
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            const setTheme = theme => {
-                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.documentElement.setAttribute('data-bs-theme', 'dark');
-                } else {
-                    document.documentElement.setAttribute('data-bs-theme', theme);
-                }
-            }
-
-            setTheme(getPreferredTheme());
-
-            const showActiveTheme = (theme, focus = false) => {
-                const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
-
-                if (!themeSwitchers.length) return;
-
-                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-                    element.classList.remove('active');
-                    element.setAttribute('aria-pressed', 'false');
-                });
-
-                for (const themeSwitcher of themeSwitchers) {
-
-                    const btnToActivate = themeSwitcher.querySelector('[data-bs-theme-value="' + theme + '"]');
-
-                    if (btnToActivate) {
-                        btnToActivate.classList.add('active');
-                        btnToActivate.setAttribute('aria-pressed', 'true');
-                    }
-                }
-            }
-
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-                const storedTheme = getStoredTheme();
-                if (storedTheme !== 'light' && storedTheme !== 'dark') {
-                    setTheme(getPreferredTheme());
-                }
-            });
-
-            window.addEventListener('DOMContentLoaded', () => {
-                showActiveTheme(getPreferredTheme());
-
-                document.querySelectorAll('[data-bs-theme-value]')
-                    .forEach(toggle => {
-                        toggle.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            const theme = toggle.getAttribute('data-bs-theme-value');
-                            setStoredTheme(theme);
-                            setTheme(theme);
-                            showActiveTheme(theme);
-                        })
-                    })
-            });
-        })();
-    </script>
     <link rel="icon" type="image/png" sizes="4200x3000" href="assets/img/brands/Transparent%20Logo.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
@@ -121,18 +40,6 @@
             </div>
         </div>
     </nav>
-    <div class="theme-switcher dropup fixed-bottom" style="margin-bottom: 30px;text-align: right;"><button class="btn btn-link" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="color: var(--bs-body-color);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-sun-fill mb-1">
-                <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
-            </svg></button>
-        <div class="dropdown-menu"><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="light"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-sun-fill opacity-50 me-2">
-                    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
-                </svg>Light</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="dark"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-moon-stars-fill opacity-50 me-2">
-                    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278"></path>
-                    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
-                </svg>Dark</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="auto"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-circle-half opacity-50 me-2">
-                    <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"></path>
-                </svg>Auto</a></div>
-    </div>
     <section class="py-5">
         <div class="container py-5">
             <div class="row mb-4 mb-lg-5">
@@ -143,177 +50,197 @@
                     <p style="text-align: justify;"><br>We’re thrilled to bring our delightful cakes, pastries, and event services to customers across Metro Manila. Whether you need a stunning cake, delicious pastries, or a fun party cart for your event, we’re here to make the process smooth and stress-free.<br><br>To help you, we’ve compiled a list of frequently asked questions (FAQs). If you have any other questions, feel free to contact us. We look forward to turning your vision into a memorable celebration!</p>
                 </div>
             </div>
-            <h2 style="font-family: Lobster, serif;">General Questions</h2>
-            <div class="accordion" role="tablist" id="accordion-1">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-1" aria-expanded="false" aria-controls="accordion-1 .item-1">What types of cake and pastries do you offer?</button></h2>
-                    <div class="accordion-collapse collapse item-1" role="tabpanel" data-bs-parent="#accordion-1">
-                        <div class="accordion-body">
-                            <p class="mb-0">We offer a wide range of cakes including birthday cakes, wedding cakes, themed cakes, and more. Our pastry selection includes cupcakes, cookies, french macarons, and a variety of seasonal treats. They can be customized based on your event theme and all our products are made with high-quality ingredients to ensure the best taste and presentation.</p>
+            <div class="row">
+                <div class="col" style="background-color: #f0a49e;padding-top: 14px;border-top-left-radius: 11px;border-top-right-radius: 11px;">
+                    <h2 style="font-family: Lobster, serif;">General Questions</h2>
+                    <div class="accordion" role="tablist" id="accordion-1">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-1" aria-expanded="false" aria-controls="accordion-1 .item-1">What types of cake and pastries do you offer?</button></h2>
+                            <div class="accordion-collapse collapse item-1" role="tabpanel" data-bs-parent="#accordion-1">
+                                <div class="accordion-body">
+                                    <p class="mb-0">We offer a wide range of cakes including birthday cakes, wedding cakes, themed cakes, and more. Our pastry selection includes cupcakes, cookies, french macarons, and a variety of seasonal treats. They can be customized based on your event theme and all our products are made with high-quality ingredients to ensure the best taste and presentation.</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-2" aria-expanded="false" aria-controls="accordion-1 .item-2">Do you offer customized cake designs?</button></h2>
-                    <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-1">
-                        <div class="accordion-body">
-                            <p class="mb-0">Absolutely! We specialize in creating customized cake designs tailored to your preferences. Whether you have a specific theme in mind or want to create something entirely unique, our team is here to bring your vision to life. You can share pictures, sketches, or browse our portfolio for inspiration, and we'll collaborate with you to craft the perfect cake for your special occasion.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h2 style="font-family: Lobster, serif;margin-top: 21px;">Ordering Process</h2>
-            <div class="accordion" role="tablist" id="accordion-2">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-1" aria-expanded="false" aria-controls="accordion-2 .item-1">What are your prices for cake, pastries, and event services?</button></h2>
-                    <div class="accordion-collapse collapse item-1" role="tabpanel" data-bs-parent="#accordion-2">
-                        <div class="accordion-body">
-                            <p class="mb-0">Prices vary depending on the size, complexity of the design, and specific requirements of your order. For a detailed quotation, please send us your ideas and we’ll be happy to provide an estimate. We also offer different party packages for all occasions. If you have a specific budget in mind, just inform us so we can work within your budget too.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-2" aria-expanded="false" aria-controls="accordion-2 .item-2">How do I place an Order?&nbsp;</button></h2>
-                    <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-2">
-                        <div class="accordion-body"><a href="contactus.html">
-                                <p class="mb-0" style="color: rgb(0,0,0);">Just send us a message on any of our social media accounts, viber, or email!</p>
-                            </a></div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-3" aria-expanded="false" aria-controls="accordion-2 .item-3">Where are you located?</button></h2>
-                    <div class="accordion-collapse collapse item-3" role="tabpanel" data-bs-parent="#accordion-2">
-                        <div class="accordion-body">
-                            <p class="mb-0">We are located at 39 Acacia Drive, Balintawak, Quezon City.&nbsp;You can also find us on google maps “The Little Baker Kitchen”.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-4" aria-expanded="false" aria-controls="accordion-2 .item-4">How far in advance should I order a cake or book a service?</button></h2>
-                    <div class="accordion-collapse collapse item-4" role="tabpanel" data-bs-parent="#accordion-2">
-                        <div class="accordion-body">
-                            <p class="mb-0">We recommend placing your orders at least 5 days in advance for standard cakes and 1-2 weeks for large or highly customized cakes. We will be able to accept your orders as long as there is a slot available in our calendar, so it is best to book in advance to ensure availability.&nbsp;We do accept advance bookings even months ahead.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-5" aria-expanded="false" aria-controls="accordion-2 .item-5">Can I order a cake for same-day delivery?</button></h2>
-                    <div class="accordion-collapse collapse item-5" role="tabpanel" data-bs-parent="#accordion-2">
-                        <div class="accordion-body">
-                            <p class="mb-0">All our cakes and pastries are made to order, ensuring freshness and quality. Due to the custom nature of our products, orders need to be placed in advance to allow sufficient time for preparation and design. Please contact us in advance to discuss your requirements and place your order.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-6" aria-expanded="false" aria-controls="accordion-2 .item-6">Do you require a deposit for orders?</button></h2>
-                    <div class="accordion-collapse collapse item-6" role="tabpanel" data-bs-parent="#accordion-2">
-                        <div class="accordion-body">
-                            <p class="mb-0">Yes, we require a deposit to confirm your order. The deposit amount varies depending on the total cost of the order. This ensures that your date and design are reserved in our schedule.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-7" aria-expanded="false" aria-controls="accordion-2 .item-7">What information do I need to provide when ordering a custom cake?</button></h2>
-                    <div class="accordion-collapse collapse item-7" role="tabpanel" data-bs-parent="#accordion-2">
-                        <div class="accordion-body">
-                            <p class="mb-0">For custom cakes, please provide the event date, cake size, flavor preferences, design ideas or themes, and any special dietary requirements. If you have a picture or sketch of the design, that would be very helpful.</p>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-2" aria-expanded="false" aria-controls="accordion-1 .item-2">Do you offer customized cake designs?</button></h2>
+                            <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-1">
+                                <div class="accordion-body">
+                                    <p class="mb-0">Absolutely! We specialize in creating customized cake designs tailored to your preferences. Whether you have a specific theme in mind or want to create something entirely unique, our team is here to bring your vision to life. You can share pictures, sketches, or browse our portfolio for inspiration, and we'll collaborate with you to craft the perfect cake for your special occasion.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <h2 style="font-family: Lobster, serif;margin-top: 21px;">Delivery and Pickup</h2>
-            <div class="accordion" role="tablist" id="accordion-3">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-3 .item-1" aria-expanded="false" aria-controls="accordion-3 .item-1">Do you offer delivery services, and what are your delivery policies?</button></h2>
-                    <div class="accordion-collapse collapse item-1" role="tabpanel" data-bs-parent="#accordion-3">
-                        <div class="accordion-body">
-                            <p class="mb-0">Yes, we provide delivery services <strong>across Metro Manila</strong>. However, we are not affiliated with any app or delivery service. We use Lalamove, a third-party service, and delivery fees may vary depending on your location. Please send us your delivery details for quotation. Do take note that once your order is handed over to the driver, we are no longer responsible for any damages.<br><br><strong>Additionally, please be aware of the following:</strong><br>- Estimated arrival times may vary due to factors like traffic and weather conditions, and the availability of the rider once dispatched. We can provide an approximate ETA for your delivery.<br><br>- If the rider requests additional fees not communicated by us, you have the right to refuse. The final delivery fee will be confirmed with you before booking.<br><br>- <strong>Please note:</strong> We utilize <strong>Lalamove </strong>as our third-party service provider for deliveries. It’s important to be aware that Lalamove’s riders may engage in double booking. Once your item is in transit, it is no longer under our direct control. While we schedule deliveries as early as possible, exact arrival times depend on the rider’s schedule. For urgent orders, feel free to contact the rider directly to inquire about their current location and estimated time of arrival (ETA).</p>
+            <div class="row" style="background-color: #f0a49e;">
+                <div class="col">
+                    <h2 style="font-family: Lobster, serif;margin-top: 21px;">Ordering Process</h2>
+                    <div class="accordion" role="tablist" id="accordion-2">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-1" aria-expanded="false" aria-controls="accordion-2 .item-1">What are your prices for cake, pastries, and event services?</button></h2>
+                            <div class="accordion-collapse collapse item-1" role="tabpanel" data-bs-parent="#accordion-2">
+                                <div class="accordion-body">
+                                    <p class="mb-0">Prices vary depending on the size, complexity of the design, and specific requirements of your order. For a detailed quotation, please send us your ideas and we’ll be happy to provide an estimate. We also offer different party packages for all occasions. If you have a specific budget in mind, just inform us so we can work within your budget too.</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-3 .item-2" aria-expanded="false" aria-controls="accordion-3 .item-2">Can I pick up my order instead?</button></h2>
-                    <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-3">
-                        <div class="accordion-body">
-                            <p class="mb-0">Yes, you can choose to pick up your order from us. We’ll provide you with the pickup details and ensure that your order is ready at the agreed-upon time. Please do take note that certain cakes/pastries are only allowed for transport using air-conditioned vehicles.</p>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-2" aria-expanded="false" aria-controls="accordion-2 .item-2">How do I place an Order?&nbsp;</button></h2>
+                            <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-2">
+                                <div class="accordion-body"><a href="contactus.html">
+                                        <p class="mb-0" style="color: rgb(0,0,0);">Just send us a message on any of our social media accounts, viber, or email!</p>
+                                    </a></div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-3" aria-expanded="false" aria-controls="accordion-2 .item-3">Where are you located?</button></h2>
+                            <div class="accordion-collapse collapse item-3" role="tabpanel" data-bs-parent="#accordion-2">
+                                <div class="accordion-body">
+                                    <p class="mb-0">We are located at 39 Acacia Drive, Balintawak, Quezon City.&nbsp;You can also find us on google maps “The Little Baker Kitchen”.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-4" aria-expanded="false" aria-controls="accordion-2 .item-4">How far in advance should I order a cake or book a service?</button></h2>
+                            <div class="accordion-collapse collapse item-4" role="tabpanel" data-bs-parent="#accordion-2">
+                                <div class="accordion-body">
+                                    <p class="mb-0">We recommend placing your orders at least 5 days in advance for standard cakes and 1-2 weeks for large or highly customized cakes. We will be able to accept your orders as long as there is a slot available in our calendar, so it is best to book in advance to ensure availability.&nbsp;We do accept advance bookings even months ahead.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-5" aria-expanded="false" aria-controls="accordion-2 .item-5">Can I order a cake for same-day delivery?</button></h2>
+                            <div class="accordion-collapse collapse item-5" role="tabpanel" data-bs-parent="#accordion-2">
+                                <div class="accordion-body">
+                                    <p class="mb-0">All our cakes and pastries are made to order, ensuring freshness and quality. Due to the custom nature of our products, orders need to be placed in advance to allow sufficient time for preparation and design. Please contact us in advance to discuss your requirements and place your order.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-6" aria-expanded="false" aria-controls="accordion-2 .item-6">Do you require a deposit for orders?</button></h2>
+                            <div class="accordion-collapse collapse item-6" role="tabpanel" data-bs-parent="#accordion-2">
+                                <div class="accordion-body">
+                                    <p class="mb-0">Yes, we require a deposit to confirm your order. The deposit amount varies depending on the total cost of the order. This ensures that your date and design are reserved in our schedule.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-7" aria-expanded="false" aria-controls="accordion-2 .item-7">What information do I need to provide when ordering a custom cake?</button></h2>
+                            <div class="accordion-collapse collapse item-7" role="tabpanel" data-bs-parent="#accordion-2">
+                                <div class="accordion-body">
+                                    <p class="mb-0">For custom cakes, please provide the event date, cake size, flavor preferences, design ideas or themes, and any special dietary requirements. If you have a picture or sketch of the design, that would be very helpful.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <h2 style="font-family: Lobster, serif;margin-top: 21px;">Payment and Policies</h2>
-            <div class="accordion" role="tablist" id="accordion-4">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-4 .item-1" aria-expanded="false" aria-controls="accordion-4 .item-1">What payment methods do you accept?</button></h2>
-                    <div class="accordion-collapse collapse item-1" role="tabpanel" data-bs-parent="#accordion-4">
-                        <div class="accordion-body">
-                            <p class="mb-0">We accept Gcash and BDO bank transfers.</p>
+            <div class="row">
+                <div class="col" style="background-color: #f0a49e;">
+                    <h2 style="font-family: Lobster, serif;margin-top: 21px;">Delivery and Pickup</h2>
+                    <div class="accordion" role="tablist" id="accordion-3">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-3 .item-1" aria-expanded="false" aria-controls="accordion-3 .item-1">Do you offer delivery services, and what are your delivery policies?</button></h2>
+                            <div class="accordion-collapse collapse item-1" role="tabpanel" data-bs-parent="#accordion-3">
+                                <div class="accordion-body">
+                                    <p class="mb-0">Yes, we provide delivery services <strong>across Metro Manila</strong>. However, we are not affiliated with any app or delivery service. We use Lalamove, a third-party service, and delivery fees may vary depending on your location. Please send us your delivery details for quotation. Do take note that once your order is handed over to the driver, we are no longer responsible for any damages.<br><br><strong>Additionally, please be aware of the following:</strong><br>- Estimated arrival times may vary due to factors like traffic and weather conditions, and the availability of the rider once dispatched. We can provide an approximate ETA for your delivery.<br><br>- If the rider requests additional fees not communicated by us, you have the right to refuse. The final delivery fee will be confirmed with you before booking.<br><br>- <strong>Please note:</strong> We utilize <strong>Lalamove </strong>as our third-party service provider for deliveries. It’s important to be aware that Lalamove’s riders may engage in double booking. Once your item is in transit, it is no longer under our direct control. While we schedule deliveries as early as possible, exact arrival times depend on the rider’s schedule. For urgent orders, feel free to contact the rider directly to inquire about their current location and estimated time of arrival (ETA).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-3 .item-2" aria-expanded="false" aria-controls="accordion-3 .item-2">Can I pick up my order instead?</button></h2>
+                            <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-3">
+                                <div class="accordion-body">
+                                    <p class="mb-0">Yes, you can choose to pick up your order from us. We’ll provide you with the pickup details and ensure that your order is ready at the agreed-upon time. Please do take note that certain cakes/pastries are only allowed for transport using air-conditioned vehicles.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <h2 style="font-family: Lobster, serif;margin-top: 21px;">Product</h2>
-            <div class="accordion" role="tablist" id="accordion-5">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-5 .item-1" aria-expanded="false" aria-controls="accordion-5 .item-1">How should I store my cake or pastries after I pick them up or when they are delivered?</button></h2>
-                    <div class="accordion-collapse collapse item-1" role="tabpanel" data-bs-parent="#accordion-5">
-                        <div class="accordion-body">
-                            <p class="mb-0"><strong>For Icing cakes:</strong> Icing cakes should be refrigerated in their original box to maintain freshness, especially if they contain perishable ingredients like fresh fruit or cream. Once the cake is sliced, it needs to be stored in an airtight container.<br><br><strong>For fondant cakes:</strong> Fondant cakes should be stored in an air-conditioned room in their original box. Once the cake is sliced, it needs to be refrigerated and stored in an airtight container.<br><br><strong>For pastries and other items:</strong> Pastries and other products should be stored in an airtight container. Depending on the type, they can be kept at room temperature or refrigerated. Please refer to specific product instructions for optimal storage conditions.</p>
+            <div class="row">
+                <div class="col" style="background-color: #f0a49e;">
+                    <h2 style="font-family: Lobster, serif;margin-top: 21px;">Payment and Policies</h2>
+                    <div class="accordion" role="tablist" id="accordion-4">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-4 .item-1" aria-expanded="false" aria-controls="accordion-4 .item-1">What payment methods do you accept?</button></h2>
+                            <div class="accordion-collapse collapse item-1" role="tabpanel" data-bs-parent="#accordion-4">
+                                <div class="accordion-body">
+                                    <p class="mb-0">We accept Gcash and BDO bank transfers.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-5 .item-2" aria-expanded="false" aria-controls="accordion-5 .item-2">How long will the cake or pastries stay fresh?</button></h2>
-                    <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-5">
-                        <div class="accordion-body">
-                            <p class="mb-0">Most cakes and pastries are best enjoyed within 2-3 days of purchase. For specific storage instructions and shelf life, please refer to the guide instructions provided with your order or contact us for details.</p>
+            </div>
+            <div class="row">
+                <div class="col" style="background-color: #f0a49e;padding-bottom: 22px;border-bottom-right-radius: 11px;border-bottom-left-radius: 11px;">
+                    <h2 style="font-family: Lobster, serif;margin-top: 21px;">Product</h2>
+                    <div class="accordion" role="tablist" id="accordion-5">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-5 .item-1" aria-expanded="false" aria-controls="accordion-5 .item-1">How should I store my cake or pastries after I pick them up or when they are delivered?</button></h2>
+                            <div class="accordion-collapse collapse item-1" role="tabpanel" data-bs-parent="#accordion-5">
+                                <div class="accordion-body">
+                                    <p class="mb-0"><strong>For Icing cakes:</strong> Icing cakes should be refrigerated in their original box to maintain freshness, especially if they contain perishable ingredients like fresh fruit or cream. Once the cake is sliced, it needs to be stored in an airtight container.<br><br><strong>For fondant cakes:</strong> Fondant cakes should be stored in an air-conditioned room in their original box. Once the cake is sliced, it needs to be refrigerated and stored in an airtight container.<br><br><strong>For pastries and other items:</strong> Pastries and other products should be stored in an airtight container. Depending on the type, they can be kept at room temperature or refrigerated. Please refer to specific product instructions for optimal storage conditions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-5 .item-2" aria-expanded="false" aria-controls="accordion-5 .item-2">How long will the cake or pastries stay fresh?</button></h2>
+                            <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-5">
+                                <div class="accordion-body">
+                                    <p class="mb-0">Most cakes and pastries are best enjoyed within 2-3 days of purchase. For specific storage instructions and shelf life, please refer to the guide instructions provided with your order or contact us for details.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <footer class="bg-primary-gradient">
+    <footer style="background-color: #2f2624;">
         <div class="container py-4 py-lg-5">
             <div class="row justify-content-center">
                 <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column">
-                    <h3 class="fs-6 fw-bold">Services</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="customorders.html">Custom Orders</a></li>
-                        <li><a href="pastries.html">Pastries</a></li>
-                        <li><a href="partycarts.html">Party Carts &amp; Events</a></li>
+                    <h3 class="fs-6 fw-bold text-light">Services</h3>
+                    <ul class="list-unstyled text-light">
+                        <li class="text-light"><a class="link-light" href="customorders.html">Custom Orders</a></li>
+                        <li class="text-light"><a class="link-light" href="pastries.html">Pastries</a></li>
+                        <li class="text-light"><a class="link-light" href="partycarts.html">Party Carts &amp; Events</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column">
-                    <h3 class="fs-6 fw-bold">About</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="aboutus.html">Our Story</a></li>
-                        <li><a href="testimonials.html">Testimonials</a></li>
+                <div class="col-sm-4 col-md-3 text-center text-lg-start text-light d-flex flex-column">
+                    <h3 class="fs-6 fw-bold text-light">About</h3>
+                    <ul class="list-unstyled text-light">
+                        <li class="text-light"><a class="link-light" href="aboutus.html">Our Story</a></li>
+                        <li class="text-light"><a class="link-light" href="testimonials.html">Testimonials</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column">
-                    <h3 class="fs-6 fw-bold">Others</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="blogs.html">Blogs</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="contactus.html">Contact Us</a></li>
+                <div class="col-sm-4 col-md-3 text-center text-lg-start text-light d-flex flex-column">
+                    <h3 class="fs-6 fw-bold text-light">Others</h3>
+                    <ul class="list-unstyled text-light">
+                        <li class="text-light"><a class="link-light" href="blogs.html">Blogs</a></li>
+                        <li class="text-light"><a class="link-light" href="faq.html">FAQ</a></li>
+                        <li class="text-light"><a class="link-light" href="contactus.html">Contact Us</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 text-center text-lg-start d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last">
-                    <div class="fw-bold d-flex align-items-center mb-2"><span class="bs-icon-sm bs-icon-circle bs-icon-primary d-flex justify-content-center align-items-center bs-icon me-2"><img src="assets/img/brands/TLBK%20Logo.png" style="height: 30px;"></span><span>The Little Baker Kitchen</span></div>
-                    <p class="text-muted">Turning dream celebrations into reality!</p>
+                <div class="col-lg-3 text-center text-lg-start text-light d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last">
+                    <div class="fw-bold text-light d-flex align-items-center mb-2"><span class="bs-icon-sm bs-icon-circle bs-icon-primary text-light d-flex justify-content-center align-items-center bs-icon me-2"><img src="assets/img/brands/TLBK%20Logo.png" style="height: 30px;"></span><span class="text-light">The Little Baker Kitchen</span></div>
+                    <p class="text-light">Turning dream celebrations into reality!</p>
                 </div>
             </div>
-            <hr>
+            <hr style="color: white;">
             <div class="text-muted d-flex justify-content-between align-items-center pt-3">
-                <p class="mb-0">Copyright © 2024 The Little Baker Kitchen</p>
-                <ul class="list-inline mb-0">
-                    <li class="list-inline-item"><a href="https://www.facebook.com/thelittlebakerkitchen" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook">
+                <p class="text-light mb-0">Copyright © 2024 The Little Baker Kitchen</p>
+                <ul class="list-inline text-light mb-0">
+                    <li class="list-inline-item text-light"><a class="link-light" href="https://www.facebook.com/thelittlebakerkitchen" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook text-light" style="font-size: 24px;">
                                 <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"></path>
                             </svg></a></li>
-                    <li class="list-inline-item"><a href="mailto:Tlbk.kitchen@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="font-size: 24px;">
+                    <li class="list-inline-item text-light"><a class="link-light" href="mailto:Tlbk.kitchen@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="text-light" style="font-size: 31px;">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.00977 5.83789C3.00977 5.28561 3.45748 4.83789 4.00977 4.83789H20C20.5523 4.83789 21 5.28561 21 5.83789V17.1621C21 18.2667 20.1046 19.1621 19 19.1621H5C3.89543 19.1621 3 18.2667 3 17.1621V6.16211C3 6.11449 3.00333 6.06765 3.00977 6.0218V5.83789ZM5 8.06165V17.1621H19V8.06199L14.1215 12.9405C12.9499 14.1121 11.0504 14.1121 9.87885 12.9405L5 8.06165ZM6.57232 6.80554H17.428L12.7073 11.5263C12.3168 11.9168 11.6836 11.9168 11.2931 11.5263L6.57232 6.80554Z" fill="currentColor"></path>
                             </svg></a></li>
-                    <li class="list-inline-item"><a href="http://instagram.com/thelittlebakerkitchen" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-instagram">
+                    <li class="list-inline-item text-light"><a class="link-light" href="http://instagram.com/thelittlebakerkitchen" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-instagram text-light" style="font-size: 21px;">
                                 <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"></path>
                             </svg></a></li>
                 </ul>
