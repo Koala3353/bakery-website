@@ -39,6 +39,8 @@ fetch(
             .then((result) => {
                 const parsedResult = JSON.parse(result);
                 console.log(parsedResult);
+                const documents = parsedResult.documents;
+                console.log(documents)
             })
             .catch(() => {
             });
