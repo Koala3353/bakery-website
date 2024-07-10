@@ -29,6 +29,9 @@
   --bs-link-decoration: blink;
 }
 
+.pagination {
+  --bs-pagination-active-bg: #d9d9d9;
+}
 .btn-primary {
   --bs-btn-color: #fff;
   --bs-btn-bg: #2f2624;
