@@ -9,6 +9,7 @@ fetch(
 )
     .then((response) => response.json())
     .then((data) => {
+        $(".loading").hide();
         const accessToken = data.access_token;
         console.log("Access Token:", accessToken);
 

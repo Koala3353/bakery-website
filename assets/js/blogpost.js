@@ -55,12 +55,14 @@ fetch(
 
                 document.querySelector(".blog-content").innerHTML =
                     `<p class="blog-content" style="text-align: justify;>` + content + `</p>`;
+                $(".loading").hide();
             })
             .catch((e) => {
                 console.log(e);
+                $(".loading").hide();
             });
     })
     .catch((error) => {
         console.error("An error occurred:", error);
-
+        $(".loading").hide();
     });

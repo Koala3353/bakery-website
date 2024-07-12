@@ -95,14 +95,17 @@ fetch(
                 paginationHtml += `<li class="page-item ${pagenum === totalPages ? 'disabled' : ''}"><a class="page-link" href="?page=${pagenum + 1}" aria-label="Next"><span aria-hidden="true" style="color: var(--bs-body-color);">»</span></a></li>`;
 
                 document.querySelector(".page-blogs").innerHTML = paginationHtml;
+                $(".loading").hide();
 
             })
             .catch((e) => {
                 console.log(e);
+                $(".loading").hide();
             });
     })
     .catch((error) => {
         console.error("An error occurred:", error);
+        $(".loading").hide();
 
     });
 
@@ -118,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function search() {
+    $(".loading").show();
     const searchInput = document.querySelector('input[type="text"]');
     let query = searchInput.value.toLowerCase();
 
@@ -212,9 +216,11 @@ function search() {
                         }
 
                         document.querySelector(".page-blogs").innerHTML = "";
+                        $(".loading").hide();
                     })
                     .catch((e) => {
                         console.log(e);
+                        $(".loading").hide();
                     });
             } else {
                 fetch(
@@ -316,20 +322,23 @@ function search() {
                                 paginationHtml += `<li class="page-item ${pagenum === totalPages ? 'disabled' : ''}"><a class="page-link" href="?page=${pagenum + 1}" aria-label="Next"><span aria-hidden="true" style="color: var(--bs-body-color);">»</span></a></li>`;
 
                                 document.querySelector(".page-blogs").innerHTML = paginationHtml;
+                                $(".loading").hide();
 
                             })
                             .catch((e) => {
                                 console.log(e);
+                                $(".loading").hide();
                             });
                     })
                     .catch((error) => {
                         console.error("An error occurred:", error);
+                        $(".loading").hide();
 
                     });
             }
         })
         .catch((error) => {
             console.error("An error occurred:", error);
-
+            $(".loading").hide();
         });
 }

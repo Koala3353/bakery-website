@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-<link rel="icon" type="image/x-icon" href="./assets/brands/Transparent Logo.png">
+    <link rel="icon" type="image/x-icon" href="./assets/img/brands/Transparent Logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home - The Little Baker Kitchen</title>
     <link rel="icon" type="image/png" sizes="4200x3000" href="assets/img/brands/Transparent%20Logo.png">
@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="assets/css/Pricing-Centered-icons.css">
     <link rel="stylesheet" href="assets/css/Stats-icons.css">
     <link rel="stylesheet" href="assets/css/untitled-1.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 
 <body>
@@ -40,6 +41,24 @@
             </div>
         </div>
     </nav>
+    <div
+            class="loading"
+            style="
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 9999;
+      "
+    >
+        <lottie-player src="https://lottie.host/5d1004d2-cceb-47f5-a290-6414e06abc02/TTsvzR1cPv.json" speed="1"  style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+    </div>
     <div class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="false" id="carousel-1" style="height: 600px;">
         <div class="carousel-inner h-100">
             <div class="carousel-item active h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="assets/img/products/HomePage1.jpg" alt="Slide Image" style="z-index: -1;">
@@ -528,6 +547,12 @@
     <script src="assets/js/bold-and-bright.js"></script>
     <script src="assets/js/Lightbox-Gallery-No-Gutters-baguetteBox.min.js"></script>
     <script src="assets/js/Lightbox-Gallery-No-Gutters-Lightbox-Gallery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        $(window).on("load", function () {
+            $(".loading").hide();
+        });
+    </script>
 </body>
 
 </html>
