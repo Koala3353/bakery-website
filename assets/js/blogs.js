@@ -47,7 +47,7 @@ fetch(
                 }
                 pagenum = parseInt(pagenum);
                 let blogsPerPage = 10;
-                let start = (pagenum-1) * blogsPerPage;
+                let start = (pagenum - 1) * blogsPerPage;
                 let end = start + blogsPerPage;
                 console.log(pagenum);
                 if (end > documents.length) {
@@ -109,14 +109,14 @@ fetch(
 
     });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     document.querySelector('.search-blogs').addEventListener('click', search);
-    document.querySelector('input[type="text"]').addEventListener('keypress', function(event) {
-    if (event.keyCode === 13 || event.which === 13) {
-        search();
-    }
-});
+    document.querySelector('input[type="text"]').addEventListener('keypress', function (event) {
+        if (event.keyCode === 13 || event.which === 13) {
+            search();
+        }
+    });
 });
 
 

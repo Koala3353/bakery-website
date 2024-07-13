@@ -57,7 +57,7 @@ fetch(
 
                 pagenum = parseInt(pagenum);
                 let ordersPerPage = 24;
-                let start = (pagenum-1) * ordersPerPage;
+                let start = (pagenum - 1) * ordersPerPage;
                 let end = start + ordersPerPage;
                 if (end > ordersPerPage.length) {
                     end = ordersPerPage.length;
@@ -169,14 +169,14 @@ fetch(
 
                 }
 
-                let paginationHtml = `<li class="page-item ${pagenum === 1 ? 'disabled' : ''}"><a class="page-link" href="?page=${pagenum - 1}${categoryNum!==-1 ? "&category=" + categoryNum : ""}" aria-label="Previous"><span aria-hidden="true" style="color: var(--bs-body-color);">«</span></a></li>`;
+                let paginationHtml = `<li class="page-item ${pagenum === 1 ? 'disabled' : ''}"><a class="page-link" href="?page=${pagenum - 1}${categoryNum !== -1 ? "&category=" + categoryNum : ""}" aria-label="Previous"><span aria-hidden="true" style="color: var(--bs-body-color);">«</span></a></li>`;
 
                 let totalPages = Math.ceil(count / ordersPerPage);
                 for (let i = 1; i <= totalPages; i++) {
-                    paginationHtml += `<li class="page-item ${i === pagenum ? 'active' : ''}" style="color: var(--bs-body-color);"><a class="page-link" style="color: var(--bs-body-color);" href="?page=${i}${categoryNum!==-1 ? "&category=" + categoryNum : ""}">${i}</a></li>`;
+                    paginationHtml += `<li class="page-item ${i === pagenum ? 'active' : ''}" style="color: var(--bs-body-color);"><a class="page-link" style="color: var(--bs-body-color);" href="?page=${i}${categoryNum !== -1 ? "&category=" + categoryNum : ""}">${i}</a></li>`;
                 }
 
-                paginationHtml += `<li class="page-item ${pagenum === totalPages ? 'disabled' : ''}"><a class="page-link" href="?page=${pagenum + 1}${categoryNum!==-1 ? "&category=" + categoryNum : ""}" aria-label="Next"><span aria-hidden="true" style="color: var(--bs-body-color);">»</span></a></li>`;
+                paginationHtml += `<li class="page-item ${pagenum === totalPages ? 'disabled' : ''}"><a class="page-link" href="?page=${pagenum + 1}${categoryNum !== -1 ? "&category=" + categoryNum : ""}" aria-label="Next"><span aria-hidden="true" style="color: var(--bs-body-color);">»</span></a></li>`;
 
                 document.querySelector(".pagination-customorders").innerHTML = paginationHtml;
                 $(".loading").hide();
@@ -192,10 +192,10 @@ fetch(
     });
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     document.querySelector('.search-customorders').addEventListener('click', search);
-    document.querySelector('input[type="text"]').addEventListener('keypress', function(event) {
+    document.querySelector('input[type="text"]').addEventListener('keypress', function (event) {
         if (event.keyCode === 13 || event.which === 13) {
             search();
         }
@@ -342,7 +342,7 @@ function search() {
 
                         pagenum = parseInt(pagenum);
                         let ordersPerPage = 24;
-                        let start = (pagenum-1) * ordersPerPage;
+                        let start = (pagenum - 1) * ordersPerPage;
                         let end = start + ordersPerPage;
                         if (end > ordersPerPage.length) {
                             end = ordersPerPage.length;
@@ -455,14 +455,14 @@ function search() {
 
                         }
 
-                        let paginationHtml = `<li class="page-item ${pagenum === 1 ? 'disabled' : ''}"><a class="page-link" href="?page=${pagenum - 1}${categoryNum!==-1 ? "&category=" + categoryNum : ""}" aria-label="Previous"><span aria-hidden="true" style="color: var(--bs-body-color);">«</span></a></li>`;
+                        let paginationHtml = `<li class="page-item ${pagenum === 1 ? 'disabled' : ''}"><a class="page-link" href="?page=${pagenum - 1}${categoryNum !== -1 ? "&category=" + categoryNum : ""}" aria-label="Previous"><span aria-hidden="true" style="color: var(--bs-body-color);">«</span></a></li>`;
 
                         let totalPages = Math.ceil(count / ordersPerPage);
                         for (let i = 1; i <= totalPages; i++) {
-                            paginationHtml += `<li class="page-item ${i === pagenum ? 'active' : ''}" style="color: var(--bs-body-color);"><a class="page-link" style="color: var(--bs-body-color);" href="?page=${i}${categoryNum!==-1 ? "&category=" + categoryNum : ""}">${i}</a></li>`;
+                            paginationHtml += `<li class="page-item ${i === pagenum ? 'active' : ''}" style="color: var(--bs-body-color);"><a class="page-link" style="color: var(--bs-body-color);" href="?page=${i}${categoryNum !== -1 ? "&category=" + categoryNum : ""}">${i}</a></li>`;
                         }
 
-                        paginationHtml += `<li class="page-item ${pagenum === totalPages ? 'disabled' : ''}"><a class="page-link" href="?page=${pagenum + 1}${categoryNum!==-1 ? "&category=" + categoryNum : ""}" aria-label="Next"><span aria-hidden="true" style="color: var(--bs-body-color);">»</span></a></li>`;
+                        paginationHtml += `<li class="page-item ${pagenum === totalPages ? 'disabled' : ''}"><a class="page-link" href="?page=${pagenum + 1}${categoryNum !== -1 ? "&category=" + categoryNum : ""}" aria-label="Next"><span aria-hidden="true" style="color: var(--bs-body-color);">»</span></a></li>`;
 
                         document.querySelector(".pagination-customorders").innerHTML = paginationHtml;
                         $(".loading").hide();
