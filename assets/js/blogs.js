@@ -73,7 +73,7 @@ fetch(
                                 <div class="col-lg-7 col-xl-9 text-center text-lg-start text-xl-start text-xxl-start align-self-center">
                                     <h3 style="margin-top: 15px;">` + title + `</h3>
                                     <div class="info"><span class="text-muted">` + time + `</span></div>
-                                    <p>` + description + `</p><a class="btn btn-primary" role="button" href="./../../blogpost.html?blog=` +
+                                    <p>` + description + `</p><a class="btn btn-primary" role="button" href="blogpost.html?blog=` +
                         blogId +
                         `" style="margin-bottom: 10px;">Read More</a>
                                 </div>
@@ -205,7 +205,7 @@ function search() {
                                     <div class="col-lg-7 col-xl-9 text-center text-lg-start text-xl-start text-xxl-start align-self-center">
                                         <h3 style="margin-top: 15px;">` + title + `</h3>
                                         <div class="info"><span class="text-muted">` + time + `</span></div>
-                                        <p>` + description + `</p><a class="btn btn-primary" role="button" href="./../../blogpost.html?blog=` +
+                                        <p>` + description + `</p><a class="btn btn-primary" role="button" href="blogpost.html?blog=` +
                                 blogId +
                                 `" style="margin-bottom: 10px;">Read More</a>
                                     </div>
@@ -301,7 +301,7 @@ function search() {
                                 <div class="col-lg-7 col-xl-9 text-center text-lg-start text-xl-start text-xxl-start align-self-center">
                                     <h3 style="margin-top: 15px;">` + title + `</h3>
                                     <div class="info"><span class="text-muted">` + time + `</span></div>
-                                    <p>` + description + `</p><a class="btn btn-primary" role="button" href="./../../blogpost.html?blog=` +
+                                    <p>` + description + `</p><a class="btn btn-primary" role="button" href="blogpost.html?blog=` +
                                         blogId +
                                         `" style="margin-bottom: 10px;">Read More</a>
                                 </div>
