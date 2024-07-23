@@ -54,7 +54,7 @@ fetch(
                 blogsContainer.innerHTML = htmlContent;
 
                 document.querySelector(".blog-content").innerHTML =
-                    `<p class="blog-content" style="text-align: justify;>` + content + `</p>`;
+                    `<p class="blog-content" style="text-align: justify;">` + content + `</p>`;
                 $(".loading").hide();
             })
             .catch((e) => {
