@@ -169,14 +169,51 @@ fetch(
 
                 }
 
-                let paginationHtml = `<li class="page-item ${pagenum === 1 ? 'disabled' : ''}"><a class="page-link" href="?page=${pagenum - 1}${categoryNum !== -1 ? "&category=" + categoryNum : ""}" aria-label="Previous"><span aria-hidden="true" style="color: var(--bs-body-color);">«</span></a></li>`;
-
                 let totalPages = Math.ceil(count / pastriesPerPage);
-                for (let i = 1; i <= totalPages; i++) {
-                    paginationHtml += `<li class="page-item ${i === pagenum ? 'active' : ''}" style="color: var(--bs-body-color);"><a class="page-link" style="color: var(--bs-body-color);" href="?page=${i}${categoryNum !== -1 ? "&category=" + categoryNum : ""}">${i}</a></li>`;
+                let maxVisiblePages = 5;
+                let startPage = Math.max(1, pagenum - Math.floor(maxVisiblePages / 2));
+                let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+                // Adjust startPage if endPage is at the end
+                if (endPage - startPage < maxVisiblePages - 1) {
+                    startPage = Math.max(1, endPage - maxVisiblePages + 1);
                 }
 
-                paginationHtml += `<li class="page-item ${pagenum === totalPages ? 'disabled' : ''}"><a class="page-link" href="?page=${pagenum + 1}${categoryNum !== -1 ? "&category=" + categoryNum : ""}" aria-label="Next"><span aria-hidden="true" style="color: var(--bs-body-color);">»</span></a></li>`;
+                let paginationHtml = `<li class="page-item ${pagenum === 1 ? 'disabled' : ''}">
+                                                    <a class="page-link" href="?page=${pagenum - 1}${categoryNum !== -1 ? "&category=" + categoryNum : ""}" aria-label="Previous">
+                                                        <span aria-hidden="true" style="color: var(--bs-body-color);">«</span>
+                                                    </a>
+                                                </li>`;
+
+                if (startPage > 1) {
+                    paginationHtml += `<li class="page-item" style="color: var(--bs-body-color);">
+                                            <a class="page-link" style="color: var(--bs-body-color);" href="?page=1${categoryNum !== -1 ? "&category=" + categoryNum : ""}">1</a>
+                                        </li>`;
+                    if (startPage > 2) {
+                        paginationHtml += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
+                    }
+                }
+
+                for (let i = startPage; i <= endPage; i++) {
+                    paginationHtml += `<li class="page-item ${i === pagenum ? 'active' : ''}" style="color: var(--bs-body-color);">
+                                            <a class="page-link" style="color: var(--bs-body-color);" href="?page=${i}${categoryNum !== -1 ? "&category=" + categoryNum : ""}">${i}</a>
+                                        </li>`;
+                }
+
+                if (endPage < totalPages) {
+                    if (endPage < totalPages - 1) {
+                        paginationHtml += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
+                    }
+                    paginationHtml += `<li class="page-item" style="color: var(--bs-body-color);">
+                                            <a class="page-link" style="color: var(--bs-body-color);" href="?page=${totalPages}${categoryNum !== -1 ? "&category=" + categoryNum : ""}">${totalPages}</a>
+                                        </li>`;
+                }
+
+                paginationHtml += `<li class="page-item ${pagenum === totalPages ? 'disabled' : ''}">
+                    <a class="page-link" href="?page=${pagenum + 1}${categoryNum !== -1 ? "&category=" + categoryNum : ""}" aria-label="Next">
+                        <span aria-hidden="true" style="color: var(--bs-body-color);">»</span>
+                    </a>
+                </li>`;
 
                 document.querySelector(".pagination-pastries").innerHTML = paginationHtml;
                 $(".loading").hide();
