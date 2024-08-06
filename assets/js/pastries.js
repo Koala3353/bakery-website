@@ -67,7 +67,7 @@ fetch(
                 for (let i = 0; i < categories.length; i++) {
                     let category = categories[i];
                     let id = i.toString();
-                    let htmlContent = `<a class="dropdown-item ${i === categoryNum ? 'active' : ''}" href="../../pastries.html?category=` + id + `">` + category + `</a>`;
+                    let htmlContent = `<a class="dropdown-item ${i === categoryNum ? 'active' : ''}" href="?category=` + id + `">` + category + `</a>`;
                     let dropdownMenu = document.querySelector(".categories-dropdown");
                     dropdownMenu.innerHTML += htmlContent; // Use += to append each category
                 }
