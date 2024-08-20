@@ -4,7 +4,7 @@ The main components of the website are a homepage to show expertise in making cu
 ## Features
 
 - **Home Page**: Introduces visitors to The Little Baker Kitchen with a captivating carousel of our best creations.
-- **Specialties Section**: Detailed pages for each category of our offerings, including Custom Orders, Pastries, Party Carts, and Dessert Bars.
+- **Specialties Section**: Detailed pages for each category of our offerings, including Custom Orders, Pastries, Party Carts, and Dessert Bars. (Dynamically updates based on the database)
 - **FAQ Page**: Answers to common questions our customers have.
 - **Blogs Page**: Articles and updates about our bakery and the latest trends in baking.
 - **Contact Us Page**: A form for customers to reach out to us with inquiries or orders.
